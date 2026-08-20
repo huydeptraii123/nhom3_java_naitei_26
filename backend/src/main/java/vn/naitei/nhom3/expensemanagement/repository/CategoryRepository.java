@@ -24,6 +24,8 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     Optional<Category> findByUserIsNullAndNameAndTypeAndDeletedAtIsNull(
             String name, CategoryType type);
 
+    List<Category> findByDeletedAtIsNullOrderByIdAsc();
+
     /**
      * Danh mục mà User được phép dùng: danh mục hệ thống (user_id NULL) + danh mục riêng của User.
      */
